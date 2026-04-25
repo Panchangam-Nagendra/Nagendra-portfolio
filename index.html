@@ -2,81 +2,253 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nagendra | Data Analyst</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
+:root {
+  --bg:#020617;
+  --card:#1e293b;
+  --text:white;
+  --accent:#38bdf8;
+}
+
+.light {
+  --bg:white;
+  --card:#f1f5f9;
+  --text:black;
+}
+
 body {
-  font-family: Arial;
-  margin: 0;
-  background: #0f172a;
-  color: white;
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  scroll-behavior:smooth;
 }
+
+/* NAV */
+nav {
+  position:fixed;
+  width:100%;
+  background:rgba(2,6,23,0.9);
+  padding:15px;
+  text-align:center;
+  z-index:1000;
+}
+nav a {
+  margin:0 15px;
+  color:var(--accent);
+  text-decoration:none;
+}
+
+/* HERO */
 header {
-  text-align: center;
-  padding: 50px;
+  text-align:center;
+  padding:140px 20px 80px;
 }
-h1 { color: #38bdf8; }
-section { padding: 40px; }
+h1 { color:var(--accent); font-size:45px; }
+
+.typing {
+  border-right:2px solid var(--accent);
+  white-space:nowrap;
+  overflow:hidden;
+  width:0;
+  animation:typing 3s steps(30,end) forwards,blink .7s infinite;
+}
+
+@keyframes typing { to { width:100%; } }
+@keyframes blink { 50% { border-color:transparent; } }
+
+button {
+  padding:12px 25px;
+  margin:10px;
+  background:var(--accent);
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* SECTIONS */
+section {
+  max-width:1000px;
+  margin:auto;
+  padding:70px 20px;
+}
+
+/* CARDS */
 .card {
-  background: #1e293b;
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 10px;
+  background:var(--card);
+  padding:20px;
+  margin:20px 0;
+  border-radius:12px;
+  transition:.4s;
 }
-a {
-  color: #38bdf8;
-  text-decoration: none;
+.card:hover {
+  transform:translateY(-10px) scale(1.02);
+}
+
+/* SKILLS */
+.skills {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
+}
+
+/* ANIMATION */
+.fade {
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* HIGHLIGHT */
+.highlight {
+  background:var(--accent);
+  color:black;
+  padding:30px;
+  border-radius:12px;
+  text-align:center;
+}
+
+/* CONTACT FORM */
+input,textarea {
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:none;
+  border-radius:5px;
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:20px;
+}
+
+/* TOGGLE */
+.toggle {
+  position:fixed;
+  right:20px;
+  top:20px;
+  cursor:pointer;
+  background:var(--accent);
+  padding:8px;
+  border-radius:6px;
 }
 </style>
 </head>
 
 <body>
 
+<div class="toggle" onclick="toggleTheme()">🌙</div>
+
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+
 <header>
 <h1>Nagendra Panchangam</h1>
-<p>Data Analyst | SQL | Python | Power BI</p>
+<p class="typing">Data Analyst | SQL | Python | Power BI</p>
 <p>Turning Data into Actionable Insights</p>
+
+<a href="resume.pdf"><button>Download Resume</button></a>
+<a href="#projects"><button>View Projects</button></a>
 </header>
 
-<section>
+<section id="about" class="fade">
 <h2>About Me</h2>
-<p>I am a Data Analyst skilled in SQL, Python, Power BI, and Excel. I transform raw data into meaningful insights that support business decisions.</p>
+<p>Data Analyst skilled in SQL, Python, Power BI & Excel. I transform complex data into business insights that drive growth and decisions.</p>
 </section>
 
-<section>
+<section id="skills" class="fade">
 <h2>Skills</h2>
-<p>SQL, Python, Power BI, Excel, Pandas, NumPy, Data Visualization, ETL</p>
-</section>
-
-<section>
-<h2>Experience</h2>
-<div class="card">
-<h3>Data Analytics Intern – FL Technologies</h3>
-<p>Improved decision-making by 25% and built 10+ dashboards.</p>
+<div class="skills">
+<div class="card">SQL</div>
+<div class="card">Python</div>
+<div class="card">Power BI</div>
+<div class="card">Excel</div>
+<div class="card">Pandas</div>
+<div class="card">NumPy</div>
+<div class="card">ETL</div>
+<div class="card">Data Visualization</div>
 </div>
 </section>
 
-<section>
+<section id="projects" class="fade">
 <h2>Projects</h2>
 
 <div class="card">
 <h3>Blinkit Sales Dashboard</h3>
-<p>Analyzed sales data and built KPI dashboards.</p>
+<img src="dashboard1.png" width="100%">
+<p>$1.20M sales analysis with city insights.</p>
 <a href="https://github.com/Panchangam-Nagendra/Blinkit-Sales-Analysis-Dashboard">View Project</a>
 </div>
 
 <div class="card">
 <h3>OTT Data Analytics</h3>
+<img src="dashboard2.png" width="100%">
 <p>Analyzed 4000+ titles using SQL & Python.</p>
 <a href="https://github.com/Panchangam-Nagendra/OTT_Domain_DataAnalytics_Python">View Project</a>
 </div>
 
 </section>
 
-<section>
+<section class="fade">
+<div class="highlight">
+<h2>Why Hire Me?</h2>
+<p>✔ Strong SQL, Python & Power BI</p>
+<p>✔ Real-world dashboard experience</p>
+<p>✔ Business-focused insights</p>
+<p>✔ Fast learner</p>
+</div>
+</section>
+
+<section id="contact" class="fade">
 <h2>Contact</h2>
 <p>Email: nagendrapanchangamm@gmail.com</p>
-<p>GitHub: <a href="https://github.com/Panchangam-Nagendra">Click Here</a></p>
+
+<form>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea placeholder="Message"></textarea>
+<button type="submit">Send</button>
+</form>
+
+<p>
+<a href="https://github.com/Panchangam-Nagendra">GitHub</a> |
+<a href="https://www.linkedin.com/in/nagendra-panchangam">LinkedIn</a>
+</p>
+
 </section>
+
+<footer>
+<p>© 2026 Nagendra Panchangam</p>
+</footer>
+
+<script>
+const elements=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+  elements.forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight-100){
+      el.classList.add('show');
+    }
+  });
+});
+
+function toggleTheme(){
+  document.body.classList.toggle('light');
+}
+</script>
 
 </body>
 </html>
