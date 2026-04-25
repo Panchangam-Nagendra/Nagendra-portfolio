@@ -3,250 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nagendra | Data Analyst</title>
+<title>Nagendra | Premium Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <style>
-:root {
-  --bg:#020617;
-  --card:#1e293b;
-  --text:white;
-  --accent:#38bdf8;
-}
-
-.light {
-  --bg:white;
-  --card:#f1f5f9;
-  --text:black;
-}
-
 body {
   margin:0;
   font-family:'Poppins',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  scroll-behavior:smooth;
+  background: linear-gradient(135deg,#0f172a,#020617);
+  color:white;
 }
 
-/* NAV */
-nav {
-  position:fixed;
-  width:100%;
-  background:rgba(2,6,23,0.9);
-  padding:15px;
-  text-align:center;
-  z-index:1000;
-}
-nav a {
-  margin:0 15px;
-  color:var(--accent);
-  text-decoration:none;
-}
-
-/* HERO */
 header {
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
-  padding:140px 20px 80px;
-}
-h1 { color:var(--accent); font-size:45px; }
-
-.typing {
-  border-right:2px solid var(--accent);
-  white-space:nowrap;
-  overflow:hidden;
-  width:0;
-  animation:typing 3s steps(30,end) forwards,blink .7s infinite;
 }
 
-@keyframes typing { to { width:100%; } }
-@keyframes blink { 50% { border-color:transparent; } }
+h1 {font-size:3.5rem;}
 
-button {
-  padding:12px 25px;
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.3);
+}
+
+.btn {
   margin:10px;
-  background:var(--accent);
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-/* SECTIONS */
-section {
-  max-width:1000px;
-  margin:auto;
-  padding:70px 20px;
-}
-
-/* CARDS */
-.card {
-  background:var(--card);
-  padding:20px;
-  margin:20px 0;
-  border-radius:12px;
-  transition:.4s;
-}
-.card:hover {
-  transform:translateY(-10px) scale(1.02);
-}
-
-/* SKILLS */
-.skills {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:15px;
-}
-
-/* ANIMATION */
-.fade {
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-.show {
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* HIGHLIGHT */
-.highlight {
-  background:var(--accent);
+  padding:12px 25px;
+  border-radius:30px;
+  background:#38bdf8;
   color:black;
-  padding:30px;
-  border-radius:12px;
-  text-align:center;
+  text-decoration:none;
+  transition:0.3s;
 }
 
-/* CONTACT FORM */
-input,textarea {
-  width:100%;
-  padding:10px;
-  margin:10px 0;
-  border:none;
-  border-radius:5px;
+.btn:hover {transform:scale(1.1);}
+
+section {
+  padding:80px 20px;
+  max-width:1100px;
+  margin:auto;
 }
 
-/* FOOTER */
-footer {
-  text-align:center;
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.card {
   padding:20px;
+  border-radius:16px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  transition:0.4s;
 }
 
-/* TOGGLE */
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+.bar {background:#1e293b;border-radius:10px;margin:10px 0;}
+.bar div {height:10px;background:#38bdf8;border-radius:10px;}
+
 .toggle {
   position:fixed;
-  right:20px;
   top:20px;
+  right:20px;
   cursor:pointer;
-  background:var(--accent);
-  padding:8px;
-  border-radius:6px;
+}
+
+.light {
+  background:white;
+  color:black;
+}
+
+footer {
+  text-align:center;
+  padding:30px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="toggle" onclick="toggleTheme()">🌙</div>
-
-<nav>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-</nav>
+<div class="toggle" onclick="toggleMode()">🌙</div>
 
 <header>
-<h1>Nagendra Panchangam</h1>
-<p class="typing">Data Analyst | SQL | Python | Power BI</p>
-<p>Turning Data into Actionable Insights</p>
-
-<a href="resume.pdf"><button>Download Resume</button></a>
-<a href="#projects"><button>View Projects</button></a>
+  <h1>Hi, I'm Nagendra 🚀</h1>
+  <h2><span id="typing"></span></h2>
+  <p>Turning Data into Business Insights</p>
+  <div>
+    <a href="#projects" class="btn">Projects</a>
+    <a href="resume.pdf" class="btn" download>Resume</a>
+  </div>
 </header>
 
-<section id="about" class="fade">
-<h2>About Me</h2>
-<p>Data Analyst skilled in SQL, Python, Power BI & Excel. I transform complex data into business insights that drive growth and decisions.</p>
+<section data-aos="fade-up">
+  <h2>About Me</h2>
+  <div class="glass">
+    I am a Data Analyst skilled in SQL, Python, and Power BI. I build dashboards, automate data workflows, and generate insights that drive business decisions.
+    <br><br>
+    During my internship, I improved reporting efficiency by 25% and built impactful dashboards.
+  </div>
 </section>
 
-<section id="skills" class="fade">
-<h2>Skills</h2>
-<div class="skills">
-<div class="card">SQL</div>
-<div class="card">Python</div>
-<div class="card">Power BI</div>
-<div class="card">Excel</div>
-<div class="card">Pandas</div>
-<div class="card">NumPy</div>
-<div class="card">ETL</div>
-<div class="card">Data Visualization</div>
-</div>
+<section data-aos="fade-right">
+  <h2>Skills</h2>
+  SQL<div class="bar"><div style="width:90%"></div></div>
+  Python<div class="bar"><div style="width:85%"></div></div>
+  Power BI<div class="bar"><div style="width:88%"></div></div>
 </section>
 
-<section id="projects" class="fade">
-<h2>Projects</h2>
+<section id="projects" data-aos="zoom-in">
+  <h2>Projects</h2>
+  <div class="cards">
 
-<div class="card">
-<h3>Blinkit Sales Dashboard</h3>
-<img src="dashboard1.png" width="100%">
-<p>$1.20M sales analysis with city insights.</p>
-<a href="https://github.com/Panchangam-Nagendra/Blinkit-Sales-Analysis-Dashboard">View Project</a>
-</div>
+    <div class="card">
+      <img src="images/blinkit.png" width="100%">
+      <h3>Blinkit Dashboard</h3>
+      <p>$1.2M Sales | 12 KPIs</p>
+    </div>
 
-<div class="card">
-<h3>OTT Data Analytics</h3>
-<img src="dashboard2.png" width="100%">
-<p>Analyzed 4000+ titles using SQL & Python.</p>
-<a href="https://github.com/Panchangam-Nagendra/OTT_Domain_DataAnalytics_Python">View Project</a>
-</div>
+    <div class="card">
+      <img src="images/ott.png" width="100%">
+      <h3>OTT Analytics</h3>
+      <p>4000+ titles analyzed</p>
+    </div>
 
+  </div>
 </section>
 
-<section class="fade">
-<div class="highlight">
-<h2>Why Hire Me?</h2>
-<p>✔ Strong SQL, Python & Power BI</p>
-<p>✔ Real-world dashboard experience</p>
-<p>✔ Business-focused insights</p>
-<p>✔ Fast learner</p>
-</div>
+<section data-aos="fade-up">
+  <h2>What I Can Do</h2>
+  <div class="glass">
+    ✔ Build dashboards<br>
+    ✔ Clean & transform data<br>
+    ✔ Generate insights<br>
+    ✔ Automate reports
+  </div>
 </section>
 
-<section id="contact" class="fade">
-<h2>Contact</h2>
-<p>Email: nagendrapanchangamm@gmail.com</p>
-
-<form>
-<input type="text" placeholder="Your Name">
-<input type="email" placeholder="Your Email">
-<textarea placeholder="Message"></textarea>
-<button type="submit">Send</button>
-</form>
-
-<p>
-<a href="https://github.com/Panchangam-Nagendra">GitHub</a> |
-<a href="https://www.linkedin.com/in/nagendra-panchangam">LinkedIn</a>
-</p>
-
+<section data-aos="fade-up">
+  <h2>Contact</h2>
+  <p>Email: nagendrapanchangamm@gmail.com</p>
+  <p>GitHub: Panchangam-Nagendra</p>
 </section>
 
 <footer>
-<p>© 2026 Nagendra Panchangam</p>
+  © 2026 Nagendra
 </footer>
 
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
 <script>
-const elements=document.querySelectorAll('.fade');
-window.addEventListener('scroll',()=>{
-  elements.forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-100){
-      el.classList.add('show');
-    }
-  });
+AOS.init();
+
+new Typed("#typing",{
+  strings:["Data Analyst","Power BI Developer","SQL Expert"],
+  typeSpeed:50,
+  backSpeed:25,
+  loop:true
 });
 
-function toggleTheme(){
-  document.body.classList.toggle('light');
+gsap.from("header",{opacity:0,y:-50,duration:1});
+
+function toggleMode(){
+  document.body.classList.toggle("light");
 }
 </script>
 
